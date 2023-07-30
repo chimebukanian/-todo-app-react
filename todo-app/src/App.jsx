@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import {Form} from './Form'
+import Form from './Form'
 
 function App() {
     const [todos, setTodos]=useState([]);
@@ -8,31 +8,28 @@ function App() {
     function todoAdd(title){
 	    setTodos(currentTodos=>[...currentTodos, {id:crypto.randomUUID(), title, completed:false}])
 	}
-
     
-
     function toogle(id, completed){
-
-	setTodos(currentTodos=>{
-	    return currentTodos.map(todo=>{
-		if (todo.id==id){
-		    return {...todo, completed}
-		}
+		setTodos(currentTodos=>{
+	    	return currentTodos.map(todo=>{
+			if (todo.id==id){
+			    return {...todo, completed}
+			}
 		return todo
 	    })
 	})
     }
     
-    function deleteTodo(id){
+    function deleteTodo(id){ cd 
 	setTodos(currentTodos=>{
 	    return currentTodos.filter(todo=>todo.id!==id)
 	})
     }
   return (
       <>
-	  console.log(1)
+	  
 	<Form addTodo={todoAdd}/>
-	  console.log(2)
+	  
 	<h1>Todo list</h1>
 	{todos.length === 0 && "No todos"}
 		<ul>

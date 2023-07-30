@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-export default function Form({addTodo}){
+function Form({addTodo}){
     const [newItem, setNewItem]=useState("");
     function handleSubmit(e){
         e.preventDefault()
@@ -16,3 +16,4 @@ export default function Form({addTodo}){
         </form>
     )
 }
+export default Form;
