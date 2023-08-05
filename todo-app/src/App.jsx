@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Form from './Form'
+import Todolist from './Todolist'
 
 function App() {
     const [todos, setTodos]=useState([]);
@@ -9,7 +10,7 @@ function App() {
 	    setTodos(currentTodos=>[...currentTodos, {id:crypto.randomUUID(), title, completed:false}])
 	}
     
-    function toogle(id, completed){
+    function toogleTodo(id, completed){
 		setTodos(currentTodos=>{
 	    	return currentTodos.map(todo=>{
 			if (todo.id==id){
@@ -20,7 +21,7 @@ function App() {
 	})
     }
     
-    function deleteTodo(id){ cd 
+    function deleteTodo(id){
 	setTodos(currentTodos=>{
 	    return currentTodos.filter(todo=>todo.id!==id)
 	})
@@ -31,20 +32,7 @@ function App() {
 	<Form addTodo={todoAdd}/>
 	  
 	<h1>Todo list</h1>
-	{todos.length === 0 && "No todos"}
-		<ul>
-		    {todos.map(todo=>{
-			return (<li key={todo.id}>
-			    <label>
-				<input type="checkbox" checked={todo.completed} onChange={evt=>toogle(todo.id, evt.target.checked)}/>
-				{todo.title}
-			    </label>
-				<button onClick={()=>deleteTodo(todo.id)}>delete</button>    
-			    
-				</li>)})}
-		    
-		</ul>
-		
+	  <Todolist toogle={toogleTodo} del={deleteTodo} todos={todos} />
     </>
   )
 }

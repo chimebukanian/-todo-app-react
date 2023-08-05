@@ -1,0 +1,9 @@
+import Todoitem from './Todoitem'
+
+export default function Todolist({todos, toogle, del}){
+
+    return (
+	<Todoitem todos={todos} toogle={toogle} del={del}/>
+
+    )
+}
