@@ -1,7 +1,7 @@
 import Todoitem from './Todoitem'
 
 export default function Todolist({todos, toogle, del}){
-    
+    console.log(todos)
     return (
         <ul>
             {todos.length===0 && "no todos"}

@@ -4,6 +4,7 @@ function Form({addTodo}){
     const [newItem, setNewItem]=useState("");
     function handleSubmit(e){
         e.preventDefault()
+        if (newItem==="") return
         addTodo(newItem)
         setNewItem("")
     }
